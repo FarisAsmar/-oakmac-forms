@@ -423,7 +423,11 @@
 </div>
 
 <div class="main" id="formWrapper">
-  <form id="applicationForm" novalidate>
+  <form id="applicationForm" action="https://formspree.io/f/xbglddqa" method="POST" novalidate>
+    <!-- Sets the email subject line in your Formspree inbox -->
+    <input type="hidden" name="_subject" value="New OakMac SHRM Committee Application">
+    <!-- Honeypot spam trap: real visitors never see or fill this field -->
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
     <!-- Personal Info -->
     <div class="section">
@@ -431,45 +435,45 @@
       <div class="grid-2" style="margin-bottom:18px;">
         <div class="field">
           <label>First Name <span class="req">*</span></label>
-          <input type="text" id="firstName" placeholder="Jane" required>
+          <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
           <span class="err-msg" id="err-firstName">Please enter your first name.</span>
         </div>
         <div class="field">
           <label>Last Name <span class="req">*</span></label>
-          <input type="text" id="lastName" placeholder="Smith" required>
+          <input type="text" id="lastName" name="lastName" placeholder="Smith" required>
           <span class="err-msg" id="err-lastName">Please enter your last name.</span>
         </div>
       </div>
       <div class="grid-2" style="margin-bottom:18px;">
         <div class="field">
           <label>Email Address <span class="req">*</span></label>
-          <input type="email" id="email" placeholder="jane@company.com" required>
+          <input type="email" id="email" name="email" placeholder="jane@company.com" required>
           <span class="err-msg" id="err-email">Please enter a valid email address.</span>
         </div>
         <div class="field">
           <label>Phone Number</label>
-          <input type="tel" id="phone" placeholder="(555) 000-0000">
+          <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
         </div>
       </div>
       <div class="grid-2" style="margin-bottom:18px;">
         <div class="field">
           <label>Current Title / Role <span class="req">*</span></label>
-          <input type="text" id="jobTitle" placeholder="HR Manager" required>
+          <input type="text" id="jobTitle" name="jobTitle" placeholder="HR Manager" required>
           <span class="err-msg" id="err-jobTitle">Please enter your current role.</span>
         </div>
         <div class="field">
           <label>Organization / Employer</label>
-          <input type="text" id="employer" placeholder="Acme Corporation">
+          <input type="text" id="employer" name="employer" placeholder="Acme Corporation">
         </div>
       </div>
       <div class="grid-2">
         <div class="field">
           <label>LinkedIn Profile</label>
-          <input type="url" id="linkedin" placeholder="https://linkedin.com/in/janesmith">
+          <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/janesmith">
         </div>
         <div class="field">
           <label>Years in HR <span class="req">*</span></label>
-          <select id="yearsHR" required>
+          <select id="yearsHR" name="yearsInHR" required>
             <option value="">Select range…</option>
             <option>0–2 years</option>
             <option>3–5 years</option>
@@ -517,7 +521,7 @@
       </div>
       <div id="otherChapterWrap" class="field" style="display:none; margin-bottom:18px;">
         <label>Which chapter is your primary affiliation?</label>
-        <input type="text" id="otherChapter" placeholder="e.g., Metro Detroit SHRM">
+        <input type="text" id="otherChapter" name="otherChapter" placeholder="e.g., Metro Detroit SHRM">
         <span class="hint">Committee volunteers are welcome regardless of primary chapter — this just helps us coordinate with your home chapter.</span>
       </div>
       <div class="grid-2" style="margin-bottom:18px;">
@@ -554,7 +558,7 @@
       </div>
       <div class="field">
         <label>Certifications / Credentials</label>
-        <input type="text" id="certs" placeholder="e.g., SHRM-CP, SPHR, PHR, GPHR…">
+        <input type="text" id="certs" name="certifications" placeholder="e.g., SHRM-CP, SPHR, PHR, GPHR…">
         <span class="hint">List any HR or related professional certifications you hold.</span>
       </div>
     </div>
@@ -567,14 +571,14 @@
       <span class="err-msg" id="err-positions" style="display:none;">Please select at least one committee.</span>
       <div class="field" style="margin-top:16px;">
         <label>Primary / First-Choice Committee <span class="req">*</span></label>
-        <select id="primaryPosition" required>
+        <select id="primaryPosition" name="primaryPosition" required>
           <option value="">Select primary interest…</option>
         </select>
         <span class="err-msg" id="err-primaryPosition">Please select your primary committee of interest.</span>
       </div>
       <div class="field" style="margin-top:16px;">
         <label>Secondary / Second-Choice Committee</label>
-        <select id="secondaryPosition">
+        <select id="secondaryPosition" name="secondaryPosition">
           <option value="">Select secondary interest…</option>
         </select>
       </div>
@@ -585,7 +589,7 @@
       <div class="section-label">Availability &amp; Commitment</div>
       <div class="field" style="margin-bottom:18px;">
         <label>Estimated Hours Available / Month <span class="req">*</span></label>
-        <select id="availability" required>
+        <select id="availability" name="availability" required>
           <option value="">Select…</option>
           <option>1–5 hours</option>
           <option>6–10 hours</option>
@@ -598,7 +602,7 @@
       <div class="field">
         <label>Previous Committee / Volunteer Experience</label>
         <div class="char-wrap">
-          <textarea id="boardExp" maxlength="600" placeholder="Describe any previous committee, event, or volunteer experience…"></textarea>
+          <textarea id="boardExp" name="volunteerExperience" maxlength="600" placeholder="Describe any previous committee, event, or volunteer experience…"></textarea>
           <span class="char-count" id="cnt-boardExp">0 / 600</span>
         </div>
       </div>
@@ -610,7 +614,7 @@
       <div class="field" style="margin-bottom:18px;">
         <label>Why do you want to join an OakMac committee? <span class="req">*</span></label>
         <div class="char-wrap">
-          <textarea id="whyServe" maxlength="800" placeholder="Share your motivation for getting involved with our chapter…" required></textarea>
+          <textarea id="whyServe" name="whyJoin" maxlength="800" placeholder="Share your motivation for getting involved with our chapter…" required></textarea>
           <span class="char-count" id="cnt-whyServe">0 / 800</span>
         </div>
         <span class="err-msg" id="err-whyServe">Please share your motivation (minimum 50 characters).</span>
@@ -618,7 +622,7 @@
       <div class="field" style="margin-bottom:18px;">
         <label>What unique skills or perspectives will you bring? <span class="req">*</span></label>
         <div class="char-wrap">
-          <textarea id="skills" maxlength="800" placeholder="Describe your strengths, expertise, and what sets you apart…" required></textarea>
+          <textarea id="skills" name="skills" maxlength="800" placeholder="Describe your strengths, expertise, and what sets you apart…" required></textarea>
           <span class="char-count" id="cnt-skills">0 / 800</span>
         </div>
         <span class="err-msg" id="err-skills">Please describe your skills (minimum 50 characters).</span>
@@ -626,13 +630,13 @@
       <div class="field" style="margin-bottom:18px;">
         <label>What goals would you prioritize for this committee?</label>
         <div class="char-wrap">
-          <textarea id="goals" maxlength="600" placeholder="Share any specific initiatives, programs, or outcomes you'd champion…"></textarea>
+          <textarea id="goals" name="goals" maxlength="600" placeholder="Share any specific initiatives, programs, or outcomes you'd champion…"></textarea>
           <span class="char-count" id="cnt-goals">0 / 600</span>
         </div>
       </div>
       <div class="field">
         <label>Additional Comments or Questions</label>
-        <textarea id="comments" placeholder="Anything else you'd like the committee chairs to know…"></textarea>
+        <textarea id="comments" name="comments" placeholder="Anything else you'd like the committee chairs to know…"></textarea>
       </div>
     </div>
 
@@ -642,7 +646,7 @@
       <div class="field">
         <label>Résumé / CV (optional)</label>
         <div class="upload-zone" id="uploadZone">
-          <input type="file" id="resumeFile" accept=".pdf,.doc,.docx">
+          <input type="file" id="resumeFile" name="resume" accept=".pdf,.doc,.docx">
           <div class="upload-icon">📄</div>
           <p><strong>Click to upload</strong> or drag &amp; drop<br>PDF, DOC, DOCX — max 5 MB</p>
           <div class="file-name" id="fileName"></div>
@@ -654,13 +658,15 @@
     <div class="section">
       <div class="section-label">Agreement</div>
       <div class="consent-box">
-        <input type="checkbox" id="consent" required>
+        <input type="checkbox" id="consent" name="consent" value="Yes — agreed to terms" required>
         <p>I confirm that the information provided is accurate and complete. I understand that submitting this form does not guarantee placement on a committee, and that the relevant Committee Chair or chapter leadership will be in touch regarding next steps. I consent to my information being used for evaluation purposes by chapter leadership.</p>
       </div>
       <span class="err-msg" id="err-consent" style="margin-top:8px;">You must agree to continue.</span>
     </div>
 
     <div class="divider"></div>
+
+    <span class="err-msg" id="err-formSubmit" style="margin-bottom:14px;"></span>
 
     <div class="submit-area">
       <button type="submit" class="btn-submit">Submit Application →</button>
@@ -694,7 +700,7 @@
     const div = document.createElement('div');
     div.className = 'position-card';
     div.innerHTML = `
-      <input type="checkbox" id="pos${i}" value="${pos}">
+      <input type="checkbox" id="pos${i}" name="committeeInterest" value="${pos}">
       <label for="pos${i}">
         <div class="pos-check"></div>
         <span>${pos}</span>
@@ -763,7 +769,11 @@
   function setInvalid(id, invalid) { const el = document.getElementById(id); if (el) el.classList.toggle('invalid', invalid); }
   function markField(id, ok) { showErr(id, !ok); setInvalid(id, !ok); return ok; }
 
-  document.getElementById('applicationForm').addEventListener('submit', e => {
+  const formEl = document.getElementById('applicationForm');
+  const submitBtn = formEl.querySelector('.btn-submit');
+  const submitBtnLabel = submitBtn.textContent;
+
+  formEl.addEventListener('submit', e => {
     e.preventDefault();
     let valid = true;
     valid = markField('firstName', !!document.getElementById('firstName').value.trim()) && valid;
@@ -796,12 +806,44 @@
       return;
     }
 
-    const fw = document.getElementById('formWrapper');
-    const ss = document.getElementById('successScreen');
-    fw.innerHTML = '';
-    fw.appendChild(ss);
-    ss.style.display = 'block';
-    ss.scrollIntoView({ behavior: 'smooth' });
+    // All client-side checks passed — send to Formspree.
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    const formError = document.getElementById('err-formSubmit');
+    if (formError) formError.classList.remove('show');
+
+    const formData = new FormData(formEl);
+
+    fetch(formEl.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(response => {
+        if (response.ok) {
+          const fw = document.getElementById('formWrapper');
+          const ss = document.getElementById('successScreen');
+          fw.innerHTML = '';
+          fw.appendChild(ss);
+          ss.style.display = 'block';
+          ss.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          return response.json().then(data => {
+            const msg = (data && data.errors && data.errors.map(err => err.message).join(', ')) ||
+              'Something went wrong submitting your application. Please try again or email us directly.';
+            throw new Error(msg);
+          });
+        }
+      })
+      .catch(err => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = submitBtnLabel;
+        if (formError) {
+          formError.textContent = err.message || 'Something went wrong submitting your application. Please try again or email us directly.';
+          formError.classList.add('show');
+          formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
   });
 </script>
 </body>
